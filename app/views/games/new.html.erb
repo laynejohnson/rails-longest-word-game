@@ -1,0 +1,19 @@
+<h1>Welcome to Des Chiffres Et Des Lettres!</h1>
+
+<h1>Letters:</h1>
+
+<div class="letters">
+  <% @random_letters.each do |letter| %>
+    <p> <%= letter %> </p>
+  <% end %>
+</div>
+
+<div class="div-form">
+  <h2>What is the longest word you can find?</h2>
+  <form action="/game" method="post">
+    <input class="word-input" type="text" name="word" placeholder="Enter your word here...">
+    <input class="btn-play" type="submit" value="Play">
+    <input type="hidden" name="test" value="<%= @random_letters.join %>">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  </form>
+</div>
